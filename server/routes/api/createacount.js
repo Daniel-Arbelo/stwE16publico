@@ -19,6 +19,11 @@ router.post('/', async(req, res) => {
     res.status(201).send();
 });
 // Delete User
+router.delete('/:id', async(req, res) => {
+    const users = await loadUserColection();
+    await users.deleteOne({_id: new mongodb.ObjectId(req.params.id)});
+    res.status(200).send();
+});
 
 async function loadUserColection() {
     const client = await mongodb.MongoClient.connect
