@@ -9,8 +9,15 @@ router.get('/', async(req, res) => {
     res.send(await users.find({}).toArray());
 });
 //Create User
-
-
+router.post('/', async(req, res) => {
+    const users = await loadUserColection();
+    await users.insertOne({
+        usuario: req.body.usuario,
+        contrasena: req.body.contrasena,
+        createdAt: new Date()
+    });
+    res.status(201).send();
+});
 // Delete User
 
 async function loadUserColection() {
