@@ -8,6 +8,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const createacount = require('./routes/api/createacount');
+
+app.use('/api/createacount', createacount);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log('Server satarted on port ', port));
