@@ -10,8 +10,12 @@
     Porfavor seleccione a continuación para Registrarse o Iniciar Sesión
   </H5></p>
   <hr>
-  <button onclick="location.href='http://10.6.131.185:8080/register'" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
-  <button style="margin: 10px; width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
+  <router-link to="/registro">
+    <button style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
+  </router-link>
+  <router-link to="/login">
+    <button style="margin: 10px; width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
+  </router-link>
 </template>
 
 <!-- background:linear-gradient(30deg, crimson,sienna, royalblue, indianred, purple); -->

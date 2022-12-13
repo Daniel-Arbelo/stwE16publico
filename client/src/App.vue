@@ -1,18 +1,9 @@
 <template>
-  <H6><img alt="Vue logo" src="./assets/logo.png" width="200" height="200"></H6>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <nav>
+    <router-link to="/">Home</router-link>
+  </nav>
+  <router-view/>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -21,8 +12,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url('./assets/desenfoque.jpg');
-  background-size: cover;
-  min-height: 100vh;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

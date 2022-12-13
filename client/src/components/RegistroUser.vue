@@ -16,10 +16,7 @@
   
   <script>
   export default {
-    name: 'Registro',
-    props: {
-      msg: String
-    }
+    name: 'RegistroUser'
   }
   </script>
   
