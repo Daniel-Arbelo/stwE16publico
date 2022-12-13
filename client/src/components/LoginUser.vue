@@ -14,10 +14,7 @@
   
   <script>
   export default {
-    name: 'Login',
-    props: {
-      msg: String
-    }
+    name: 'LoginUser'
   }
   </script>
   
