@@ -4,19 +4,62 @@
     </b></H1></p> 
     <hr>
     <label>Email</label><br>
-    <input id="email" name="email" type="text" placeholder="Email del usuario" required><br><br>
+    <input id="email" name="email" type="text" placeholder="Email del usuario" required v-model="gmail"><br><br>
     <label>Usuario</label><br>
-    <input id="usuario" name="usuario" type="text" placeholder="Nombre del usuario" required><br><br>
+    <input id="usuario" name="usuario" type="text" placeholder="Nombre del usuario" required v-model="usuario"><br><br>
     <label>Contraseña</label><br>
-    <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña del usuario" required>
+    <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña del usuario" required v-model="contrasena">
     <br><br>
     <hr>
-    <button style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
+    <button v-on:click="createUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
+
   </template>
   
   <script>
+  import CreateAcountService from '../CreateAcountService';
+
   export default {
-    name: 'RegistroUser'
+    name: 'RegistroUser',
+    data() {
+      return {
+        users: [],
+        error: '',
+        gmail: '',
+        usuario: '',
+        contrasena: ''
+      }
+    },
+    async created() {
+      try {
+        this.users = await CreateAcountService.getAcounts();
+      } catch(err) {
+        this.error = err.message;
+      }
+    },
+    methods: {
+      async createUser() {
+        /*let existeCuenta = 0;
+        this.users = await CreateAcountService.getAcounts();
+        this.users.forEach(function(cuenta) {
+          confirm("adf");
+          if(this.gmail == cuenta.gmail){
+            existeCuenta = 1;
+          }
+        });
+        if(existeCuenta){
+          confirm("Este correo ya tiene una cuenta asociada");
+        }else{
+          
+        }*/
+        
+        await CreateAcountService.insertUser(this.gmail, this.usuario, this.contrasena);
+        this.users = await CreateAcountService.getAcounts();
+        this.gmail = '';
+        this.usuario = '';
+        this.contrasena = '';
+        confirm("Cuenta creada");
+      }
+    }
   }
   </script>
   
