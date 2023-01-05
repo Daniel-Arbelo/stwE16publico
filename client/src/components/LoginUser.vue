@@ -1,20 +1,24 @@
 <template style="background-color: black">
-    <p><H1 style ="color: black;"><b> 
-      Login
-    </b></H1></p> 
-    <hr>
-    <label>Usuario</label><br>
-    <input id="usuario" name="usuario" type="text" placeholder="Nombre del usuario" required v-model="usuario"><br><br>
-    <label>Contraseña</label><br>
-    <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña del usuario" required v-model="contrasena">
-    <br><br>
-    <hr>
-    
-    <button v-on:click="loginUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
+  <div>
+      <p><H1 style ="color: black;"><b> 
+        Login
+      </b></H1></p> 
+      <hr>
+      <label>gmail</label><br>
+      <input id="gmail" name="gmail" type="text" placeholder="Gmail del usuario" required v-model="gmail"><br><br>
+      <label>Contraseña</label><br>
+      <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña del usuario" required v-model="contrasena">
+      <br><br>
+      <hr>
+      
+      <button v-on:click="loginUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
+      {{ error }} 
+    </div>
   </template>
   
   <script>
   import CreateAcountService from '../CreateAcountService';
+  import axios from 'axios';
 
   export default {
     name: 'LoginUser',
@@ -23,6 +27,7 @@
         usuariocorrecto: 0,
         users: [],
         error: '',
+        gmail: '',
         usuario: '',
         contrasena: ''
       }
@@ -36,7 +41,26 @@
     },
     methods: {
       async loginUser() {
-
+      let user = {
+        gmail: this.gmail,
+        contrasena: this.contrasena
+      }
+      
+      axios.post('http://localhost:5000/login', user)
+        .then(res => {
+          //if successfull
+          if (res.status === 200) {
+            localStorage.setItem('token', res.data.token);
+            //this.$router.push('/');
+          }
+        }, err => {
+          console.log(err.response);
+          this.error = err.response.data.error
+        })
+        this.usuario = '';
+        this.gmail = '';
+        this.contrasena = '';
+        /*
         this.users = await CreateAcountService.getAcounts();
         this.users.forEach(elemento => {
           
@@ -55,7 +79,7 @@
           this.usuario = '';
           this.contrasena = '';
         }
-        
+        */
       }
     }
   }

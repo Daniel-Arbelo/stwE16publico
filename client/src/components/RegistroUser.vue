@@ -1,4 +1,5 @@
 <template style="background-color: black">
+  <div>
     <p><H1 style ="color: black;"><b> 
       Registro
     </b></H1></p> 
@@ -12,11 +13,13 @@
     <br><br>
     <hr>
     <button v-on:click="createUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
-
+    {{ error }}
+  </div>
   </template>
   
   <script>
   import CreateAcountService from '../CreateAcountService';
+  import axios from 'axios';
 
   export default {
     name: 'RegistroUser',
@@ -38,26 +41,30 @@
     },
     methods: {
       async createUser() {
-        /*let existeCuenta = 0;
-        this.users = await CreateAcountService.getAcounts();
-        this.users.forEach(function(cuenta) {
-          confirm("adf");
-          if(this.gmail == cuenta.gmail){
-            existeCuenta = 1;
-          }
-        });
-        if(existeCuenta){
-          confirm("Este correo ya tiene una cuenta asociada");
-        }else{
-          
-        }*/
+        let newUser = {
+          usuario: this.usuario,
+          gmail: this.gmail,
+          contrasena: this.contrasena
+        }
+        axios.post('http://localhost:5000/signup', newUser)
+          .then( res => {
+            this.error = res;
+            this.$router.push('/login');
+            this.error = '';
+          }, err => {
+            console.log(err.response)
+            this.error = err.response.data.error
+          })
         
+      
+        
+        /*
         await CreateAcountService.insertUser(this.gmail, this.usuario, this.contrasena);
         this.users = await CreateAcountService.getAcounts();
         this.gmail = '';
         this.usuario = '';
         this.contrasena = '';
-        confirm("Cuenta creada");
+        confirm("Cuenta creada");*/
       }
     }
   }
