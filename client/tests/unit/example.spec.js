@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 describe('HelloWorld.vue', () => {
   it('renders props.msg when passed', () => {
-    const msg = 'new message'
+    const msg = '¡Bienvenido a nuestro servicio de películas online!'
     const wrapper = shallowMount(HelloWorld, {
       props: { msg }
     })

@@ -2,23 +2,23 @@
   <div class="movie-details">
     <!-- <img v-bind:src="poster" alt="Poster">-->
     <img src="../assets/starwars.jpg" alt="Imagen">
-    <h1>{{ title }} Star Wars III</h1>
-    <p>{{ description }} ¡Guerra! La República se desmorona bajo los ataques del despiadado Lord Sith, el conde Dooku. Hay héroes en ambos bandos, pero el mal está por doquier. En una contundente jugada, el diabólico líder droide, el general Grievous, ha irrumpido en la capital de la República y ha secuestrado al Canciller Palpatine, líder del senado Galáctico. Mientras el ejército droide separatista trata de huir con su valioso rehén, dos caballeros Jedi inician una misión desesperada para liberar al Canciller cautivo.</p>
+    <h1 id="title">{{ title }} Star Wars III</h1>
+    <p id="description">{{ description }} ¡Guerra! La República se desmorona bajo los ataques del despiadado Lord Sith, el conde Dooku. Hay héroes en ambos bandos, pero el mal está por doquier. En una contundente jugada, el diabólico líder droide, el general Grievous, ha irrumpido en la capital de la República y ha secuestrado al Canciller Palpatine, líder del senado Galáctico. Mientras el ejército droide separatista trata de huir con su valioso rehén, dos caballeros Jedi inician una misión desesperada para liberar al Canciller cautivo.</p>
     <hr>
     <div class="details">
       <hr class="vertical-line">
-      <h2>Year</h2>
+      <h2 id="year">Year</h2>
       <p>2005</p>
       <hr class="vertical-line">
-      <h2>Country</h2>
+      <h2 id="country">Country</h2>
       <p>United States of America</p>
       <hr class="vertical-line">
-      <h2>Duration</h2>
+      <h2 id="duration">Duration</h2>
       <p>140 min</p>
       <hr class="vertical-line">
     </div>
     <hr>
-    <button>Añadir a la cesta</button>
+    <button id="btn-cesta">Añadir a la cesta</button>
     <br>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template style="background-color: black">
   <div>
-      <p><H1 style ="color: black;"><b> 
+      <p><H1 id="title" style ="color: black;"><b> 
         Login
       </b></H1></p> 
       <hr>
@@ -11,7 +11,7 @@
       <br><br>
       <hr>
       
-      <button v-on:click="loginUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
+      <button id="btn-login" v-on:click="loginUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Login</button>
       {{ error }} 
     </div>
   </template>

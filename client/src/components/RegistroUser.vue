@@ -1,6 +1,6 @@
 <template style="background-color: black">
   <div>
-    <p><H1 style ="color: black;"><b> 
+    <p><H1 id="title" style ="color: black;"><b> 
       Registro
     </b></H1></p> 
     <hr>
@@ -12,7 +12,7 @@
     <input id="contraseña" name="contraseña" type="password" placeholder="Contraseña del usuario" required v-model="contrasena">
     <br><br>
     <hr>
-    <button v-on:click="createUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
+    <button id="btn-registro" v-on:click="createUser" style="width:150px; height:45px; background-color: #641E16; color:white; font-size: 20px;">Register</button>
     {{ error }}
   </div>
   </template>
