@@ -19,5 +19,5 @@ workflows:
           version: '14.21.1'
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
-          run:
+          - run:
             command: npm run test:unit
