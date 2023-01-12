@@ -1,0 +1,20 @@
+language: node_js
+
+node_js: 
+  - "14.21.1"
+
+dist: trusty
+
+branches:
+  only:
+    - Release1
+    
+before_script:
+  - cd client
+
+script:
+  - npm run build
+  - npm run test:unit
+
+
+
