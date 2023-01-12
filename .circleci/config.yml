@@ -23,5 +23,3 @@ workflows:
             command: npm run build
           run:
             command: npm run test:unit
-          run:
-            command: npm run test:unit
