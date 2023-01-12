@@ -20,6 +20,4 @@ workflows:
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
           run:
-            command: npm run build
-          run:
             command: npm run test:unit
