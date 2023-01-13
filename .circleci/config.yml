@@ -11,7 +11,7 @@ jobs:
           command: "sudo npm install -g npm"
       - run:
           name: Move to the client folder
-          command: "cd client"
+          command: cd client
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
