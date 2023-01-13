@@ -12,6 +12,9 @@ jobs:
       - run:
           name: Move to the client folder
           command: cd client
+      - run:
+          name: ls
+          command: ls
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
